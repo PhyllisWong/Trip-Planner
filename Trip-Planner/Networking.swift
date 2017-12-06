@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 /*
  Parts of the HTTP Request
@@ -18,22 +17,8 @@ import UIKit
  5. Body
  */
 
-// Generate authorization headers for http methods and sanitize code for helper functions
-struct basicAuth {
-    
-    static func generateBasicAuthHeader(username: String, password: String) -> String {
-        let loginString = String(format: "%@:%@", username, password)
-        guard let loginData: Data = loginString.data(using: String.Encoding.utf8)
-            else { return "Error no log in data" }
-        let base64LoginString = loginData.base64EncodedString(options: .init(rawValue: 0))
-        let authHeaderString = "Basic \(base64LoginString)"
-        
-        return authHeaderString
-    }
-}
 
-
-// 1 HTTP Requests
+// 1 HTTP Methods
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -41,88 +26,71 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-enum Resource {
-    case createUser
-    case loginUser
-    case createTrip
-    case showTrip
-    case deleteTrip(destination: String)
+// Generate authorization headers to have access to the database
+struct basicAuth {
     
-    func httpMethod() -> HTTPMethod {
-        switch self {
-        case .createUser, .createTrip:
-            return .post
-        case .loginUser:
-            return .get
-        case .showTrip:
-            return .get
-        case .deleteTrip:
-            return .delete
-        }
-    }
-    
-    // 2 Headers
-    func headers() -> [String: String]{
-        switch self {
-        case .loginUser:
-            return ["Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": "", // what goes here?
-                    "Host": "http://127.0.0.1:5000/trips"
-                ]
-        case .createUser, .createTrip:
-            return ["Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": "", // what goes here?
-                    "Host": "http://127.0.0.1:5000/trips"
-                ]
-        case .showTrip:
-            return ["Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": "", // what goes here?
-                    "Host": "http://127.0.0.1:5000/trips"
-                ]
-        case .deleteTrip:
-            return ["Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": "", // what goes here?
-                    "Host": "http://127.0.0.1:5000/trips"
-                ]
-        }
-    }
-    
-    // 3 Path
-    
-    func path() -> String {
-        switch self {
-        case .createUser, .loginUser:
-            return "/users"
-        case .createTrip, .showTrip:
-            return "/trips"
-        case .deleteTrip(let destination):
-            return "/trips\(destination)"
-        }
-    }
-    
-    // 4 URL Parameters
-    func urlParams() -> [String: String] {
-        switch self {
-        case .createUser, .createTrip:
-            return [:]
-        case .loginUser:
-            return [:]
-        case .showTrip:
-            return [:]
-        case .deleteTrip:
-            return [:]
-        }
-    }
-    
-    // 5 Body
-    func body() {
+    // 2 Generate basic auth header in the format required by the server
+    static func generateBasicAuthHeader(username: String, password: String) -> String {
         
+        // create a formatted string username:password
+        let loginString = String(format: "%@:%@", username, password)
+        // encode the string into 'utf-8' format
+        guard let loginData: Data = loginString.data(using: String.Encoding.utf8)
+            else { return "Error no log in data" }
+        // encode utf-8 into base64 format
+        let base64LoginString = loginData.base64EncodedString(options: .init(rawValue: 0))
+        // set the base64 string as the auth header by using Basic Auth format
+        let authHeaderString = "Basic \(base64LoginString)"
+        
+        return authHeaderString
     }
 }
+
+enum Route {
+    case users()
+    case trips()
+    
+    // 3 URL path to use for routes
+    func path() -> String {
+        switch self {
+        case .users():
+            return "/users"
+        case .trips():
+            return "/trips"
+        }
+    }
+    
+    // 4 URL Parameters to pass if any
+    func urlParams() -> [String: String] {
+        switch self {
+        case .users():
+            return ["":""]
+        case .trips():
+            return ["":""]
+        }
+    }
+    
+    // 5 json Body
+    func body(user: User? = nil, trip: Trip? = nil) -> Data? {
+        switch self {
+        case .users():
+            var jsonBody = Data()
+            do {
+                // encode the user object into a json object
+                jsonBody = try JSONEncoder().encode(user)
+            } catch {}
+            return jsonBody
+        case .trips():
+            var jsonBody = Data()
+            do {
+                // encode the trip object into a json object
+                jsonBody = try JSONEncoder().encode(trip)
+            } catch {}
+            return jsonBody
+        }
+    }
+}
+
 
 
 

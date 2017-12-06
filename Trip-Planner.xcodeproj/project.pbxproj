@@ -13,6 +13,8 @@
 		B99242F01FD88B3B00F2307B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99242EF1FD88B3B00F2307B /* Assets.xcassets */; };
 		B99242F31FD88B3B00F2307B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99242F11FD88B3B00F2307B /* LaunchScreen.storyboard */; };
 		B997D3CE1FD88C5800CB91C5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3CD1FD88C5800CB91C5 /* Networking.swift */; };
+		B997D3D01FD8AC0600CB91C5 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */; };
+		B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B99242F21FD88B3B00F2307B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B99242F41FD88B3B00F2307B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B997D3CD1FD88C5800CB91C5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				B99242F11FD88B3B00F2307B /* LaunchScreen.storyboard */,
 				B99242F41FD88B3B00F2307B /* Info.plist */,
 				B997D3CD1FD88C5800CB91C5 /* Networking.swift */,
+				B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */,
+				B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */,
 			);
 			path = "Trip-Planner";
 			sourceTree = "<group>";
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B997D3D01FD8AC0600CB91C5 /* TripModel.swift in Sources */,
 				B997D3CE1FD88C5800CB91C5 /* Networking.swift in Sources */,
 				B99242EB1FD88B3B00F2307B /* ViewController.swift in Sources */,
+				B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */,
 				B99242E91FD88B3B00F2307B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
