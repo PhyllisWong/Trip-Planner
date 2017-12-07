@@ -11,6 +11,7 @@ import UIKit
 class LoginVC: UIViewController {
     
     // Variables
+    // Perminently store user data
     let user = UserDefaults()
     
     // Outlets
