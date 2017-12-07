@@ -12,10 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let userLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        
+        if userLoggedIn == true {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let instantiateVC = storyboard.instantiateViewController(withIdentifier: "TripsVC")
+            self.window?.rootViewController = instantiateVC
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
