@@ -91,6 +91,26 @@ enum Route {
     }
 }
 
+class Networking {
+    // local server...switch to public API after testing
+    // Networking method
+    
+    static func fetch(route: Route, user: User? = nil, trip: Trip? = nil, httpMethod: HTTPMethod, completionHandler: @escaping(Data, Int) -> Void) {
+        
+        // Setting the url string and appending the path
+        let baseURL = "http://127.0.0.1:5000/"
+        let fullURLString = URL.init(string: baseURL.appending(route.path()))
+        print(fullURLString)
+        // Appending the URL Params using the KeyChainSwift library
+        
+        
+        // let requestURLString = fullURLString?.appendingQueryParameters(route.urlParameters())
+        
+    }
+}
+
+
+
 
 
 
