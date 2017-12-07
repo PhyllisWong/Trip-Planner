@@ -26,29 +26,46 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-// Generate authorization headers to have access to the database
-struct basicAuth {
-    
-    // 2 Generate basic auth header in the format required by the server
-    static func generateBasicAuthHeader(username: String, password: String) -> String {
-        
-        // create a formatted string username:password
-        let loginString = String(format: "%@:%@", username, password)
-        // encode the string into 'utf-8' format
-        guard let loginData: Data = loginString.data(using: String.Encoding.utf8)
-            else { return "Error no log in data" }
-        // encode utf-8 into base64 format
-        let base64LoginString = loginData.base64EncodedString(options: .init(rawValue: 0))
-        // set the base64 string as the auth header by using Basic Auth format
-        let authHeaderString = "Basic \(base64LoginString)"
-        
-        return authHeaderString
-    }
-}
+//struct basicAuth {
+//
+//    // 2 Generate basic auth header in the format required by the server
+//    static func generateBasicAuthHeader(username: String, password: String) -> String {
+//
+//        // create a formatted string username:password
+//        let loginString = String(format: "%@:%@", username, password)
+//        // encode the string into 'utf-8' format
+//        guard let loginData: Data = loginString.data(using: String.Encoding.utf8)
+//            else { return "Error no log in data" }
+//        // encode utf-8 into base64 format
+//        let base64LoginString = loginData.base64EncodedString(options: .init(rawValue: 0))
+//        // set the base64 string as the auth header by using Basic Auth format
+//        let authHeaderString = "Basic \(base64LoginString)"
+//
+//        return authHeaderString
+//    }
+//}
 
 enum Route {
     case users()
     case trips()
+    
+    // #2
+    func header(token: String) -> [String: String] {
+        switch self {
+        case .users():
+            return ["Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": "\(token)",
+                    "Host": "http://127.0.0.1:5000/users"
+            ]
+        case .trips():
+            return ["Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": "\(token)",
+                    "Host": "http://127.0.0.1:5000/users"
+            ]
+        }
+    }
     
     // 3 URL path to use for routes
     func path() -> String {
@@ -79,14 +96,18 @@ enum Route {
                 // encode the user object into a json object
                 jsonBody = try JSONEncoder().encode(user)
             } catch {}
+            
             return jsonBody
+            
         case .trips():
             var jsonBody = Data()
             do {
                 // encode the trip object into a json object
                 jsonBody = try JSONEncoder().encode(trip)
             } catch {}
+            
             return jsonBody
+    
         }
     }
 }
@@ -100,12 +121,33 @@ class Networking {
         // Setting the url string and appending the path
         let baseURL = "http://127.0.0.1:5000/"
         let fullURLString = URL.init(string: baseURL.appending(route.path()))
-        print(fullURLString)
+
         // Appending the URL Params using the KeyChainSwift library
+        let requestURLString = fullURLString?.appendingPathComponent(route.path())
+        var request = URLRequest(url: requestURLString!)
         
+        request.allHTTPHeaderFields = route.header(token: "Basic cGh5bGxpczp0ZXN0")
+        request.httpMethod = httpMethod.rawValue
         
-        // let requestURLString = fullURLString?.appendingQueryParameters(route.urlParameters())
+        // Check to see if the passed in http method is "POST"
+        if user != nil && httpMethod.rawValue == "POST" {
+            request.httpBody = route.body(user: user)
+        }
+        if trip != nil && httpMethod.rawValue == "POST" {
+            request.httpBody = route.body(trip: trip)
+        }
         
+        // Create the URL session
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, err) in
+            guard let res = response else { return }
+            
+            // downcast to get the http status code
+            let statusCode: Int = (res as! HTTPURLResponse).statusCode
+            if let data = data {
+                completionHandler(data, statusCode)
+            }
+        }.resume()
     }
 }
 

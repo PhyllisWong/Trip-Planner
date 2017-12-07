@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trip-Planner/Networking.swift"
-            timestampString = "534297788.653785"
+            timestampString = "534302918.404941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "fetch(route:user:trip:httpMethod:completionHandler:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "body(user:trip:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
