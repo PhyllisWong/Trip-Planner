@@ -9,7 +9,18 @@
 import UIKit
 
 class TripCell: UITableViewCell {
-
+    
+    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var waypointLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
+    
+    var trip: Trip? {
+        didSet {
+            
+            destinationLabel.text = "Destination: \(trip?.destination)"
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

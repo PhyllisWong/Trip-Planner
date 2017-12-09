@@ -126,7 +126,7 @@ class Networking {
         let requestURLString = fullURLString?.appendingPathComponent(route.path())
         var request = URLRequest(url: requestURLString!)
         
-        request.allHTTPHeaderFields = route.header(token: "Basic cGh5bGxpczp0ZXN0")
+        request.allHTTPHeaderFields = route.header(token: "Basic dGVzdDp0ZXN0")
         request.httpMethod = httpMethod.rawValue
         
         // Check to see if the passed in http method is "POST"

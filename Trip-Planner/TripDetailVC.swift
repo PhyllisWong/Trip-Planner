@@ -11,10 +11,13 @@ import UIKit
 class TripDetailVC: UIViewController {
     
     // Variables
-    var trip : Trip?
+    var trip = Trip(destination: "Berlin", waypoints: ["place", "otherPlace"], completed: false)
     var user : User?
     
     // Outlets
+    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var waypointLabel: UILabel!
+    @IBOutlet weak var completedLabel: UILabel!
     
     
     // Actions
@@ -22,6 +25,10 @@ class TripDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        destinationLabel.text = trip.destination
+        waypointLabel.text = trip.waypoints.description
+        completedLabel.text = trip.completed.description
     }
 
     override func didReceiveMemoryWarning() {

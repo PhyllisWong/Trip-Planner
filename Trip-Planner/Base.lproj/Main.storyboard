@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2bV-ua-aIG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9oG-nY-B8C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
@@ -103,17 +109,62 @@
             </objects>
             <point key="canvasLocation" x="452" y="118.29085457271366"/>
         </scene>
-        <!--Trips-->
+        <!--TripsVC-->
         <scene sceneID="wWu-Vs-xbs">
             <objects>
-                <viewController restorationIdentifier="TripsVC" storyboardIdentifier="TripsVC" title="Trips" id="9oG-nY-B8C" customClass="TripsVC" customModule="Trip_Planner" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TripsVC" storyboardIdentifier="TripsVC" title="TripsVC" id="9oG-nY-B8C" customClass="TripsVC" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xpo-J1-046">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TripsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DY-N2-vvc" customClass="TripsTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DY-N2-vvc" userLabel="tripsTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="132" id="vB1-ts-7ZK" customClass="TripCell" customModule="Trip_Planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vB1-ts-7ZK" id="mc5-lO-r5E">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Oa-FU-Lee">
+                                                    <rect key="frame" x="27" y="11" width="321" height="110.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujs-fj-KcN" userLabel="DestinationLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Way Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-1Z-BrE" userLabel="WaypointLabel">
+                                                            <rect key="frame" x="0.0" y="43.5" width="321" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfI-1A-Az2" userLabel="CompletedLabel">
+                                                            <rect key="frame" x="0.0" y="87" width="321" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Oa-FU-Lee" firstAttribute="leading" secondItem="mc5-lO-r5E" secondAttribute="leadingMargin" constant="12" id="DmU-ZS-YTK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1Oa-FU-Lee" secondAttribute="trailing" constant="12" id="tBV-Ms-5ms"/>
+                                                <constraint firstItem="1Oa-FU-Lee" firstAttribute="centerY" secondItem="mc5-lO-r5E" secondAttribute="centerY" id="yDv-dy-xfP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="completedLabel" destination="KfI-1A-Az2" id="P73-5C-Th3"/>
+                                            <outlet property="destinationLabel" destination="ujs-fj-KcN" id="rwX-Ri-EFO"/>
+                                            <outlet property="waypointLabel" destination="PCf-1Z-BrE" id="i7d-78-bwf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,23 +177,80 @@
                         <viewLayoutGuide key="safeArea" id="Cbt-ue-glO"/>
                     </view>
                     <connections>
-                        <outlet property="tripsTableView" destination="4DY-N2-vvc" id="6B1-N0-sKO"/>
+                        <outlet property="tripsTableView" destination="4DY-N2-vvc" id="hKz-rd-cSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onc-sJ-p9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1202.4000000000001" y="113.79310344827587"/>
         </scene>
-        <!--Trip DetailVC-->
+        <!--TripDetailVC-->
         <scene sceneID="BYd-tg-pho">
             <objects>
-                <viewController id="Zbd-Mb-8Hj" customClass="TripDetailVC" customModule="Trip_Planner" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TripDetailVC" storyboardIdentifier="TripDetailVC" id="Zbd-Mb-8Hj" userLabel="TripDetailVC" customClass="TripDetailVC" customModule="Trip_Planner" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Scp-ZT-3Xj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTC-CA-Mtl">
+                                <rect key="frame" x="143.5" y="60" width="88.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15T-1w-gzQ">
+                                <rect key="frame" x="112.5" y="91.5" width="150" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Way Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbG-mX-7kg">
+                                <rect key="frame" x="145.5" y="181" width="84" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X56-5k-aHH">
+                                <rect key="frame" x="143.5" y="297.5" width="88.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="display waypoints" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-bY-DSs" userLabel="displayWaypointsLabel">
+                                <rect key="frame" x="12" y="205" width="351" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="False" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIu-Sp-xwh">
+                                <rect key="frame" x="167.5" y="323" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="36o-cF-XMo"/>
+                            <constraint firstItem="15T-1w-gzQ" firstAttribute="top" secondItem="FTC-CA-Mtl" secondAttribute="bottom" constant="8" symbolic="YES" id="Bdb-IU-Erd"/>
+                            <constraint firstItem="X56-5k-aHH" firstAttribute="top" secondItem="jbG-mX-7kg" secondAttribute="bottom" constant="93" id="HFo-aE-jfe"/>
+                            <constraint firstItem="GIu-Sp-xwh" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="IPU-AM-wt0"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="top" secondItem="GTz-ER-7Qf" secondAttribute="top" constant="40" id="NVd-Dd-AUU"/>
+                            <constraint firstItem="X56-5k-aHH" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="Scs-ye-KtM"/>
+                            <constraint firstItem="15T-1w-gzQ" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="VO9-mf-NcB"/>
+                            <constraint firstItem="U9b-bY-DSs" firstAttribute="leading" secondItem="GTz-ER-7Qf" secondAttribute="leading" constant="12" id="ejY-s4-XgK"/>
+                            <constraint firstItem="GTz-ER-7Qf" firstAttribute="trailing" secondItem="U9b-bY-DSs" secondAttribute="trailing" constant="12" id="gq3-ZG-HLV"/>
+                            <constraint firstItem="jbG-mX-7kg" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="ieL-aJ-4uc"/>
+                            <constraint firstItem="jbG-mX-7kg" firstAttribute="top" secondItem="15T-1w-gzQ" secondAttribute="bottom" constant="66" id="sVy-T6-dwl"/>
+                            <constraint firstItem="U9b-bY-DSs" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="wpx-3g-1lY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GTz-ER-7Qf"/>
                     </view>
+                    <connections>
+                        <outlet property="completedLabel" destination="GIu-Sp-xwh" id="3Th-hU-KgH"/>
+                        <outlet property="destinationLabel" destination="15T-1w-gzQ" id="yoJ-Nf-W5X"/>
+                        <outlet property="waypointLabel" destination="U9b-bY-DSs" id="tra-0f-jtZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzy-Ti-r9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

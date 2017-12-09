@@ -12,8 +12,8 @@ class LoginVC: UIViewController {
     
     // Variables
     // Perminently store user data
-    let user = UserDefaults()
-    
+    var user = UserDefaults()
+   
     // Outlets
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
