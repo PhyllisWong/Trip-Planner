@@ -22,10 +22,10 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Trips"
+        
         // set the row height for the tableView large enough to display all the data
         tripsTableView.rowHeight = UITableViewAutomaticDimension
-        tripsTableView.rowHeight = 100
+        tripsTableView.rowHeight = 120
         
         // Set the delegate of the table view to the view controller
         tripsTableView.delegate = self
@@ -34,6 +34,7 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
 
     override func viewWillAppear(_ animated: Bool) {
         // guard let currentUser = user else { return }
+        self.title = "Trips"
         print(user)
         
         // http GET request

@@ -9,8 +9,8 @@
 import Foundation
 
 struct Trip {
-    let destination: String?
-    let waypoints: [String?]
+    let destination: String
+    let waypoints: [String]
     let completed: Bool
  
 }

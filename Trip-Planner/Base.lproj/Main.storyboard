@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DY-N2-vvc" userLabel="tripsTableView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="132" id="vB1-ts-7ZK" customClass="TripCell" customModule="Trip_Planner" customModuleProvider="target">
@@ -166,10 +166,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-sM-xA6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="wdf-0V-UXZ"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4DY-N2-vvc" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" id="1hB-Bc-mGs"/>
+                            <constraint firstItem="4DY-N2-vvc" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="44" id="1hB-Bc-mGs"/>
+                            <constraint firstItem="AlR-sM-xA6" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="6hJ-3h-aV0"/>
+                            <constraint firstItem="AlR-sM-xA6" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="HWD-NK-v5E"/>
+                            <constraint firstItem="AlR-sM-xA6" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" id="Per-Uw-MfS"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="Saq-sl-zxg"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="cMX-iu-w1a"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="bottom" secondItem="Cbt-ue-glO" secondAttribute="bottom" id="qha-OL-MyP"/>

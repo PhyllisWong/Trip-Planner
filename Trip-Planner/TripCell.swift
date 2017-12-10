@@ -15,9 +15,14 @@ class TripCell: UITableViewCell {
     @IBOutlet weak var completedLabel: UILabel!
     
     var trip: Trip? {
+       
         didSet {
-            
-            destinationLabel.text = "Destination: \(trip?.destination)"
+            let destination = trip?.destination
+            let waypoints = trip?.waypoints.description
+            let completed = trip?.completed.description
+            destinationLabel.text = "Destination: \(destination ?? "No destination")"
+            waypointLabel.text = "Waypoints: \(waypoints ?? "No waypoints")"
+            completedLabel.text = "Completed: \(completed ?? "False")"
         }
     }
     
