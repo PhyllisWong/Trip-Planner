@@ -11,7 +11,7 @@ import UIKit
 class TripDetailVC: UIViewController {
     
     // Variables
-    var trip = Trip(destination: "Berlin", waypoints: ["place", "otherPlace"], completed: false)
+    var trip : Trip?
     var user : User?
     
     // Outlets
@@ -26,9 +26,13 @@ class TripDetailVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        destinationLabel.text = trip.destination
-        waypointLabel.text = trip.waypoints.description
-        completedLabel.text = trip.completed.description
+        let destination = trip?.destination
+        let waypoints = trip?.waypoints.description
+        let completed = trip?.completed.description
+        
+        destinationLabel.text = "\(destination ?? "No destination")"
+        waypointLabel.text = "\(waypoints ?? "No waypoints")"
+        completedLabel.text = "\(completed ?? "False")"
     }
 
     override func didReceiveMemoryWarning() {

@@ -21,7 +21,7 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
     // Actions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Trips"
         
         // set the row height for the tableView large enough to display all the data
         tripsTableView.rowHeight = UITableViewAutomaticDimension
@@ -34,7 +34,6 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
 
     override func viewWillAppear(_ animated: Bool) {
         // guard let currentUser = user else { return }
-        self.title = "Trips"
         print(user)
         
         // http GET request
@@ -58,13 +57,14 @@ extension TripsVC: UITableViewDataSource {
     
     // When user selects a row in the table view go to the detail view of the trip
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trip = trips[indexPath.row]
+        let trip = trips[indexPath.row]!
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
         let tripDetailVC = storyboard.instantiateViewController(withIdentifier: "TripDetailVC") as! TripDetailVC
         
-        tripDetailVC.trip = trip!
+        tripDetailVC.trip = trip
         tripDetailVC.user = user
+//        print(tripDetailVC.trip)
         self.navigationController?.pushViewController(tripDetailVC, animated: true)
     }
     
@@ -79,9 +79,7 @@ extension TripsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath) as! TripCell
         let trip = trips[indexPath.row]
-        
         cell.trip = trip
-        print(trip!)
         return cell
     }
 }

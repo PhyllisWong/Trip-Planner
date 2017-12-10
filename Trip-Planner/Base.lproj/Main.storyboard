@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9oG-nY-B8C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kqV-eh-1Mv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DY-N2-vvc" userLabel="tripsTableView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="132" id="vB1-ts-7ZK" customClass="TripCell" customModule="Trip_Planner" customModuleProvider="target">
@@ -167,31 +167,35 @@
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-sM-xA6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="5" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="krA-xI-oe8"/>
+                                </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="wdf-0V-UXZ"/>
+                                    <navigationItem title="Trips" id="wdf-0V-UXZ"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4DY-N2-vvc" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="44" id="1hB-Bc-mGs"/>
+                            <constraint firstItem="4DY-N2-vvc" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="60" id="1hB-Bc-mGs"/>
                             <constraint firstItem="AlR-sM-xA6" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="6hJ-3h-aV0"/>
                             <constraint firstItem="AlR-sM-xA6" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="HWD-NK-v5E"/>
-                            <constraint firstItem="AlR-sM-xA6" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" id="Per-Uw-MfS"/>
+                            <constraint firstItem="AlR-sM-xA6" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="5" id="Per-Uw-MfS"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="Saq-sl-zxg"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="cMX-iu-w1a"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="bottom" secondItem="Cbt-ue-glO" secondAttribute="bottom" id="qha-OL-MyP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbt-ue-glO"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jGR-gW-zNQ"/>
                     <connections>
                         <outlet property="tripsTableView" destination="4DY-N2-vvc" id="hKz-rd-cSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onc-sJ-p9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202.4000000000001" y="113.79310344827587"/>
+            <point key="canvasLocation" x="1541.5999999999999" y="113.79310344827587"/>
         </scene>
         <!--TripDetailVC-->
         <scene sceneID="BYd-tg-pho">
@@ -202,37 +206,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTC-CA-Mtl">
-                                <rect key="frame" x="143.5" y="60" width="88.5" height="23.5"/>
+                                <rect key="frame" x="143" y="60" width="89" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15T-1w-gzQ">
-                                <rect key="frame" x="112.5" y="91.5" width="150" height="23.5"/>
+                                <rect key="frame" x="113" y="96" width="150" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Way Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbG-mX-7kg">
-                                <rect key="frame" x="145.5" y="181" width="84" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waypoints" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbG-mX-7kg">
+                                <rect key="frame" x="147" y="186" width="82" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X56-5k-aHH">
-                                <rect key="frame" x="143.5" y="297.5" width="88.5" height="23.5"/>
+                                <rect key="frame" x="143" y="299" width="89" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="display waypoints" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-bY-DSs" userLabel="displayWaypointsLabel">
-                                <rect key="frame" x="12" y="205" width="351" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="display waypoints" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-bY-DSs" userLabel="displayWaypointsLabel">
+                                <rect key="frame" x="12" y="222" width="351" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="False" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIu-Sp-xwh">
-                                <rect key="frame" x="167.5" y="323" width="39.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="False" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIu-Sp-xwh">
+                                <rect key="frame" x="168" y="335" width="40" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,18 +244,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="36o-cF-XMo"/>
-                            <constraint firstItem="15T-1w-gzQ" firstAttribute="top" secondItem="FTC-CA-Mtl" secondAttribute="bottom" constant="8" symbolic="YES" id="Bdb-IU-Erd"/>
-                            <constraint firstItem="X56-5k-aHH" firstAttribute="top" secondItem="jbG-mX-7kg" secondAttribute="bottom" constant="93" id="HFo-aE-jfe"/>
-                            <constraint firstItem="GIu-Sp-xwh" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="IPU-AM-wt0"/>
-                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="top" secondItem="GTz-ER-7Qf" secondAttribute="top" constant="40" id="NVd-Dd-AUU"/>
-                            <constraint firstItem="X56-5k-aHH" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="Scs-ye-KtM"/>
-                            <constraint firstItem="15T-1w-gzQ" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="VO9-mf-NcB"/>
-                            <constraint firstItem="U9b-bY-DSs" firstAttribute="leading" secondItem="GTz-ER-7Qf" secondAttribute="leading" constant="12" id="ejY-s4-XgK"/>
-                            <constraint firstItem="GTz-ER-7Qf" firstAttribute="trailing" secondItem="U9b-bY-DSs" secondAttribute="trailing" constant="12" id="gq3-ZG-HLV"/>
-                            <constraint firstItem="jbG-mX-7kg" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="ieL-aJ-4uc"/>
-                            <constraint firstItem="jbG-mX-7kg" firstAttribute="top" secondItem="15T-1w-gzQ" secondAttribute="bottom" constant="66" id="sVy-T6-dwl"/>
-                            <constraint firstItem="U9b-bY-DSs" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="wpx-3g-1lY"/>
+                            <constraint firstItem="15T-1w-gzQ" firstAttribute="top" secondItem="FTC-CA-Mtl" secondAttribute="bottom" constant="12" id="5ff-yB-b1p"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="trailing" secondItem="X56-5k-aHH" secondAttribute="trailing" id="8Sn-l5-1Hm"/>
+                            <constraint firstItem="U9b-bY-DSs" firstAttribute="centerX" secondItem="X56-5k-aHH" secondAttribute="centerX" id="GKh-NQ-SXl"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="centerX" secondItem="Scp-ZT-3Xj" secondAttribute="centerX" id="LCY-nc-G2Z"/>
+                            <constraint firstItem="jbG-mX-7kg" firstAttribute="top" secondItem="15T-1w-gzQ" secondAttribute="bottom" constant="66" id="Q2v-1w-3cb"/>
+                            <constraint firstItem="U9b-bY-DSs" firstAttribute="leading" secondItem="GTz-ER-7Qf" secondAttribute="leading" constant="12" id="RLt-Zj-en8"/>
+                            <constraint firstItem="jbG-mX-7kg" firstAttribute="centerX" secondItem="U9b-bY-DSs" secondAttribute="centerX" id="T6l-aN-9pn"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="leading" secondItem="X56-5k-aHH" secondAttribute="leading" id="TLF-KZ-ccN"/>
+                            <constraint firstItem="X56-5k-aHH" firstAttribute="top" secondItem="U9b-bY-DSs" secondAttribute="bottom" constant="53" id="VLh-V3-1w2"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="centerX" secondItem="15T-1w-gzQ" secondAttribute="centerX" id="gqM-a2-cMI"/>
+                            <constraint firstItem="FTC-CA-Mtl" firstAttribute="top" secondItem="GTz-ER-7Qf" secondAttribute="top" constant="40" id="m4z-dh-L2S"/>
+                            <constraint firstItem="U9b-bY-DSs" firstAttribute="top" secondItem="jbG-mX-7kg" secondAttribute="bottom" constant="12" id="oUW-IG-3im"/>
+                            <constraint firstItem="X56-5k-aHH" firstAttribute="centerX" secondItem="GIu-Sp-xwh" secondAttribute="centerX" id="r9D-5z-1Zq"/>
+                            <constraint firstItem="GIu-Sp-xwh" firstAttribute="top" secondItem="X56-5k-aHH" secondAttribute="bottom" constant="12" id="rRD-1m-kLt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GTz-ER-7Qf"/>
                     </view>
@@ -263,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzy-Ti-r9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="118"/>
+            <point key="canvasLocation" x="2306.4000000000001" y="117.39130434782609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uRi-wW-c0l">
@@ -282,6 +288,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRE-Zg-3x4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-447" y="118"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fum-HG-WPt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kqV-eh-1Mv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VEt-Ie-y7B">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9oG-nY-B8C" kind="relationship" relationship="rootViewController" id="Uzt-Pr-L4c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zk2-PZ-Set" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201.5999999999999" y="113.3433283358321"/>
         </scene>
     </scenes>
 </document>
