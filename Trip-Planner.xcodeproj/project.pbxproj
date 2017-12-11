@@ -18,6 +18,7 @@
 		B997D3CE1FD88C5800CB91C5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3CD1FD88C5800CB91C5 /* Networking.swift */; };
 		B997D3D01FD8AC0600CB91C5 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */; };
 		B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */; };
+		B9A72E501FDE257A00681744 /* addTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A72E4F1FDE257A00681744 /* addTripVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B997D3CD1FD88C5800CB91C5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B9A72E4F1FDE257A00681744 /* addTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTripVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B99242E81FD88B3B00F2307B /* AppDelegate.swift */,
 				B99242EA1FD88B3B00F2307B /* LoginVC.swift */,
 				B99125D81FD9CAC300BEB3DE /* TripsVC.swift */,
+				B9A72E4F1FDE257A00681744 /* addTripVC.swift */,
 				B99125DA1FD9D08900BEB3DE /* TripDetailVC.swift */,
 				B99125DE1FD9D2EC00BEB3DE /* TripCell.swift */,
 				B99242EC1FD88B3B00F2307B /* Main.storyboard */,
@@ -161,6 +164,7 @@
 				B99242EB1FD88B3B00F2307B /* LoginVC.swift in Sources */,
 				B99125DB1FD9D08900BEB3DE /* TripDetailVC.swift in Sources */,
 				B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */,
+				B9A72E501FDE257A00681744 /* addTripVC.swift in Sources */,
 				B99242E91FD88B3B00F2307B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

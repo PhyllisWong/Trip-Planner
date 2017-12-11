@@ -18,6 +18,8 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
     // Outlets
     @IBOutlet weak var tripsTableView: UITableView!
     
+    
+    
     // Actions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,9 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
         }
     }
     
+    @IBAction func addTripButton(_ sender: Any) {
+        
+    }
     
 }
 
