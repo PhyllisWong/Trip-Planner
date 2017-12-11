@@ -12,7 +12,7 @@ struct Trip {
     let destination: String
     let waypoints: [String]
     let completed: Bool
- 
+    
 }
 
 extension Trip: Decodable {
@@ -39,10 +39,11 @@ extension Trip: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: TripKeys.self)
         try container.encode(destination, forKey: .destination)
-        try container.encode([waypoints], forKey: .waypoints)
+        try container.encode(waypoints, forKey: .waypoints)
         try container.encode(completed, forKey: .completed)
     }
 }
+
 
 
 

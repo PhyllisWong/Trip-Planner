@@ -56,13 +56,13 @@ enum Route {
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "\(token)",
-                    "Host": "http://127.0.0.1:5000/users"
+                "Host": "http://127.0.0.1:5000/users"
             ]
         case .trips():
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "\(token)",
-                    "Host": "http://127.0.0.1:5000/users"
+                "Host": "http://127.0.0.1:5000/users"
             ]
         }
     }
@@ -107,7 +107,7 @@ enum Route {
             } catch {}
             
             return jsonBody
-    
+            
         }
     }
 }
@@ -121,7 +121,7 @@ class Networking {
         // Setting the url string and appending the path
         let baseURL = "http://127.0.0.1:5000/"
         let fullURLString = URL.init(string: baseURL.appending(route.path()))
-
+        
         // Appending the URL Params using the KeyChainSwift library
         let requestURLString = fullURLString?.appendingPathComponent(route.path())
         var request = URLRequest(url: requestURLString!)
@@ -147,7 +147,7 @@ class Networking {
             if let data = data {
                 completionHandler(data, statusCode)
             }
-        }.resume()
+            }.resume()
     }
 }
 

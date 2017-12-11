@@ -18,8 +18,6 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
     // Outlets
     @IBOutlet weak var tripsTableView: UITableView!
     
-    
-    
     // Actions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
         tripsTableView.delegate = self
         tripsTableView.dataSource = self
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         // guard let currentUser = user else { return }
         print(user)
@@ -43,18 +41,18 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
             print("Current status: \(data) \(response)")
             let trips = try? JSONDecoder().decode([Trip].self, from: data)
             
+            print(trips)
+            
             guard let allTrips = trips else { return }
             self.trips = allTrips
             
             DispatchQueue.main.async {
+                print("Trips View Dispatch to main thread worked!")
                 self.tripsTableView.reloadData()
             }
         }
     }
     
-    @IBAction func addTripButton(_ sender: Any) {
-        
-    }
     
 }
 
@@ -69,7 +67,7 @@ extension TripsVC: UITableViewDataSource {
         
         tripDetailVC.trip = trip
         tripDetailVC.user = user
-//        print(tripDetailVC.trip)
+        //        print(tripDetailVC.trip)
         self.navigationController?.pushViewController(tripDetailVC, animated: true)
     }
     

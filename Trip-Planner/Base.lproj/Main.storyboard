@@ -191,7 +191,7 @@
                     <navigationItem key="navigationItem" id="jGR-gW-zNQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Eo3-3h-L8D">
                             <connections>
-                                <segue destination="xIU-6r-Rcu" kind="presentation" id="okj-0N-bn4"/>
+                                <segue destination="xIU-6r-Rcu" kind="presentation" id="DuJ-WJ-q2l"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -277,10 +277,11 @@
             </objects>
             <point key="canvasLocation" x="2306.4000000000001" y="117.39130434782609"/>
         </scene>
-        <!--Add TripVC-->
+        <!--addTripVC-->
         <scene sceneID="McE-65-Vlj">
             <objects>
-                <viewController restorationIdentifier="addTripVC" storyboardIdentifier="addTripVC" id="xIU-6r-Rcu" customClass="addTripVC" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cy-P8-x5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController restorationIdentifier="addTripVC" storyboardIdentifier="addTripVC" id="xIU-6r-Rcu" userLabel="addTripVC" customClass="addTripVC" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VaV-pR-O2Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,7 +292,7 @@
                                     <navigationItem title="Title" id="1z3-Vh-4nE">
                                         <barButtonItem key="rightBarButtonItem" title="save" id="Pq3-n5-8Ee">
                                             <connections>
-                                                <action selector="saveButton:" destination="xIU-6r-Rcu" id="kfQ-Ox-UhI"/>
+                                                <action selector="saveButton:" destination="xIU-6r-Rcu" id="eUB-Qz-qPd"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -327,21 +328,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cCl-tN-5Fz">
-                                <rect key="frame" x="12" y="351" width="351" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yea-wU-ESZ">
+                                <rect key="frame" x="163" y="361" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="Pdh-Bq-Cco" secondAttribute="trailing" constant="12" id="1k1-r0-bPk"/>
                             <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="88W-3S-iLB" secondAttribute="trailing" constant="12" id="39F-4a-xuz"/>
+                            <constraint firstItem="yea-wU-ESZ" firstAttribute="centerX" secondItem="VaV-pR-O2Q" secondAttribute="centerX" id="3MC-Ki-jn8"/>
+                            <constraint firstItem="yea-wU-ESZ" firstAttribute="top" secondItem="Pdh-Bq-Cco" secondAttribute="bottom" constant="22" id="4te-NC-7pW"/>
                             <constraint firstItem="Exu-ga-fvx" firstAttribute="top" secondItem="al4-qx-1Mf" secondAttribute="bottom" constant="12" id="AQR-vn-P56"/>
                             <constraint firstItem="al4-qx-1Mf" firstAttribute="top" secondItem="88W-3S-iLB" secondAttribute="bottom" constant="55" id="Dd1-VQ-Y1M"/>
                             <constraint firstItem="88W-3S-iLB" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="FAs-bw-KR5"/>
-                            <constraint firstItem="cCl-tN-5Fz" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="IyW-XY-fnC"/>
                             <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="al4-qx-1Mf" secondAttribute="trailing" constant="12" id="JKL-e4-FTu"/>
                             <constraint firstItem="al4-qx-1Mf" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="JKe-5t-ViO"/>
                             <constraint firstItem="h5m-iy-0v8" firstAttribute="top" secondItem="VaV-pR-O2Q" secondAttribute="top" constant="5" id="Jh0-2U-5G2"/>
@@ -349,25 +348,22 @@
                             <constraint firstItem="Pdh-Bq-Cco" firstAttribute="top" secondItem="Exu-ga-fvx" secondAttribute="bottom" constant="55" id="T1B-Jg-PRh"/>
                             <constraint firstItem="cX4-9h-FIW" firstAttribute="centerX" secondItem="VaV-pR-O2Q" secondAttribute="centerX" id="Tha-CW-OoJ"/>
                             <constraint firstItem="Exu-ga-fvx" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="Tw4-rN-Iqt"/>
-                            <constraint firstItem="cCl-tN-5Fz" firstAttribute="top" secondItem="Pdh-Bq-Cco" secondAttribute="bottom" constant="12" id="UNB-HA-cCI"/>
                             <constraint firstItem="cX4-9h-FIW" firstAttribute="top" secondItem="h5m-iy-0v8" secondAttribute="bottom" constant="24" id="VIi-Iz-D93"/>
                             <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="Exu-ga-fvx" secondAttribute="trailing" constant="12" id="YW4-iA-rJQ"/>
                             <constraint firstItem="88W-3S-iLB" firstAttribute="top" secondItem="cX4-9h-FIW" secondAttribute="bottom" constant="12" id="ZNB-Kr-Vw5"/>
                             <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="cX4-9h-FIW" secondAttribute="trailing" constant="12" id="ZvC-wd-WHk"/>
                             <constraint firstItem="cX4-9h-FIW" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="awR-nN-QgQ"/>
                             <constraint firstItem="h5m-iy-0v8" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" id="fHD-cM-7Wa"/>
-                            <constraint firstItem="DF9-li-JFM" firstAttribute="trailing" secondItem="cCl-tN-5Fz" secondAttribute="trailing" constant="12" id="fzx-YY-t1l"/>
                             <constraint firstItem="Pdh-Bq-Cco" firstAttribute="leading" secondItem="DF9-li-JFM" secondAttribute="leading" constant="12" id="kMZ-Rq-mkR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DF9-li-JFM"/>
                     </view>
                     <connections>
-                        <outlet property="completedTF" destination="cCl-tN-5Fz" id="SZp-zl-Nex"/>
-                        <outlet property="destinationTF" destination="88W-3S-iLB" id="Uu8-FQ-VDw"/>
-                        <outlet property="waypointsTF" destination="Exu-ga-fvx" id="yQe-D6-fJ9"/>
+                        <outlet property="completedSwitch" destination="yea-wU-ESZ" id="xo0-I1-U5L"/>
+                        <outlet property="destinationTF" destination="88W-3S-iLB" id="YyI-yJ-XGo"/>
+                        <outlet property="waypointsTF" destination="Exu-ga-fvx" id="6Am-Sh-VJI"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2cy-P8-x5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1542" y="892"/>
         </scene>
