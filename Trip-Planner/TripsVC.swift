@@ -41,7 +41,7 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
             print("Current status: \(data) \(response)")
             let trips = try? JSONDecoder().decode([Trip].self, from: data)
             
-            print(trips)
+            print(trips!)
             
             guard let allTrips = trips else { return }
             self.trips = allTrips
@@ -84,6 +84,28 @@ extension TripsVC: UITableViewDataSource {
         let trip = trips[indexPath.row]
         cell.trip = trip
         return cell
+    }
+    
+    // Deleting a row the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let deleteTrip = trips[indexPath.row]
+            print(deleteTrip!)
+            // Delete data from the array of Trips
+            self.trips.remove(at: indexPath.row)
+            //Delete the row from the tableview
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // http DELETE request to remove from the database
+            Networking.fetch(route: Route.trips(), httpMethod: .delete) { (data, response)  in
+                print("Trip deleted from view controller")
+                // Reloads tableview data if successful
+                    DispatchQueue.main.async {
+                        tableView.reloadData()
+                    }
+            }
+        }
     }
 }
 

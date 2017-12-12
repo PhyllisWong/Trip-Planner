@@ -147,7 +147,7 @@ class Networking {
             if let data = data {
                 completionHandler(data, statusCode)
             }
-            }.resume()
+        }.resume()
     }
 }
 
