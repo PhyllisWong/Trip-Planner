@@ -34,20 +34,19 @@ class TripsVC: UIViewController,  UITableViewDelegate  {
     
     override func viewWillAppear(_ animated: Bool) {
         // guard let currentUser = user else { return }
-        print(user)
+        // print("User from TripsVC: \(user)")
         
         // http GET request
         Networking.fetch(route: Route.trips(), user: user, httpMethod: .get) { (data, response) in
-            print("Current status: \(data) \(response)")
+            print("Networking fetch results:\nData:\(data)\nResponse code: \(response)\n")
             let trips = try? JSONDecoder().decode([Trip].self, from: data)
             
-            print(trips!)
+            print("\(trips!)\n")
             
             guard let allTrips = trips else { return }
             self.trips = allTrips
             
             DispatchQueue.main.async {
-                print("Trips View Dispatch to main thread worked!")
                 self.tripsTableView.reloadData()
             }
         }
@@ -91,7 +90,8 @@ extension TripsVC: UITableViewDataSource {
         if editingStyle == .delete {
             // Delete the row from the data source
             let deleteTrip = trips[indexPath.row]
-            print(deleteTrip!)
+            
+            print("Trip to delete: \(deleteTrip!)\n")
             // Delete data from the array of Trips
             self.trips.remove(at: indexPath.row)
             //Delete the row from the tableview
@@ -99,7 +99,7 @@ extension TripsVC: UITableViewDataSource {
             
             // http DELETE request to remove from the database
             Networking.fetch(route: Route.trips(), httpMethod: .delete) { (data, response)  in
-                print("Trip deleted from view controller")
+                print("Trip deleted from view controller\n")
                 // Reloads tableview data if successful
                     DispatchQueue.main.async {
                         tableView.reloadData()

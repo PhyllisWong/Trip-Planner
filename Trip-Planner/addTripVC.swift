@@ -29,7 +29,7 @@ class addTripVC: UIViewController {
 
         //==> POST new trip
         Networking.fetch(route: Route.trips(), trip: trip, httpMethod: .post) { (data, response) in
-            print("ADD TRIP status: \(data) \(response)")
+            print("ADD TRIP response code: \(response)/n")
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }
