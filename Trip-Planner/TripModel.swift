@@ -39,7 +39,6 @@ extension Trip: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: TripKeys.self)
         try container.encode(destination, forKey: .destination)
-        // Original encoding error from nesting [waypoints]
         try container.encode(waypoints, forKey: .waypoints)
         try container.encode(completed, forKey: .completed)
     }

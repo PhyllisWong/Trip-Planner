@@ -37,3 +37,14 @@ extension User: Decodable {
         self.init(email: email, username: username, password: password)
     }
 }
+
+extension User: Encodable {
+    
+    // Encode the swift data to json
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: UserKeys.self)
+        try container.encode(email, forKey: .email)
+        try container.encode(username, forKey: .username)
+        try container.encode(password, forKey: .password)
+    }
+}

@@ -43,20 +43,35 @@ enum HTTPMethod: String {
 //    }
 //}
 
+// user: User? = nil, trip: Trip? = nil, httpMethod: HTTPMethod
+
 enum Route {
-    case users()
-    case trips()
+    case loginUser(email: String, password: String)
+    case createUser(user: User)
+    case getTrips
+    case createTrip(trip: Trip)
+    case deleteTrip(destination: String)
+    
+    // #1 HTTP Method
+    func httpMethod() -> HTTPMethod {
+        switch self {
+        case .loginUser:
+            return .get
+        case .createUser:
+            return .post
+        case .getTrips:
+            return .get
+        case .createTrip:
+            return .post
+        case .deleteTrip:
+            return .delete
+        }
+    }
     
     // #2
     func header(token: String) -> [String: String] {
         switch self {
-        case .users():
-            return ["Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": "\(token)",
-                "Host": "http://127.0.0.1:5000/users"
-            ]
-        case .trips():
+        case .loginUser, .createUser, .getTrips, .createTrip, .deleteTrip:
             return ["Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": "\(token)",
@@ -68,27 +83,30 @@ enum Route {
     // 3 URL path to use for routes
     func path() -> String {
         switch self {
-        case .users():
+        case .createUser, .loginUser:
             return "/users"
-        case .trips():
+        case .getTrips, .createTrip, .deleteTrip:
             return "/trips"
         }
     }
     
     // 4 URL Parameters to pass if any
-    func urlParams() -> [String: String] {
+    func urlParams() -> [URLQueryItem] {
         switch self {
-        case .users():
-            return ["":""]
-        case .trips():
-            return ["":""]
+        case .createUser, .loginUser:
+            return []
+        case .getTrips, .createTrip:
+            return []
+        case .deleteTrip(let destination):
+            return [URLQueryItem(name: "destination", value: destination)]
+            
         }
     }
     
     // 5 json Body
-    func body(user: User? = nil, trip: Trip? = nil) -> Data? {
+    func body() -> Data? {
         switch self {
-        case .users():
+        case let .createUser(user):
             var jsonBody = Data()
             do {
                 // encode the user object into a json object
@@ -97,7 +115,7 @@ enum Route {
             
             return jsonBody
             
-        case .trips():
+        case let .createTrip(trip):
             var jsonBody = Data()
             do {
                 // encode the trip object into a json object
@@ -106,7 +124,9 @@ enum Route {
             
             return jsonBody
             
+        default: return nil
         }
+        
     }
 }
 
@@ -114,7 +134,7 @@ class Networking {
     // local server...switch to public API after testing
     // Networking method
     
-    static func fetch(route: Route, user: User? = nil, trip: Trip? = nil, httpMethod: HTTPMethod, completionHandler: @escaping(Data, Int) -> Void) {
+    static func fetch(route: Route, completionHandler: @escaping(Data, Int) -> Void) {
         
         // Setting the url string and appending the path
         let baseURL = "http://127.0.0.1:5000/"
@@ -122,18 +142,15 @@ class Networking {
         
         // Appending the URL Params using the KeyChainSwift library
         let requestURLString = fullURLString?.appendingPathComponent(route.path())
-        var request = URLRequest(url: requestURLString!)
         
+        var components = URLComponents(url: requestURLString!, resolvingAgainstBaseURL: true)
+        components?.queryItems = route.urlParams()
+        
+        var request = URLRequest(url: components!.url!)
         request.allHTTPHeaderFields = route.header(token: "Basic dGVzdDp0ZXN0")
-        request.httpMethod = httpMethod.rawValue
+        request.httpMethod = route.httpMethod().rawValue
         
-        // Check to see if the passed in http method is "POST"
-        if user != nil && httpMethod.rawValue == "POST" {
-            request.httpBody = route.body(user: user)
-        }
-        if trip != nil && httpMethod.rawValue == "POST" {
-            request.httpBody = route.body(trip: trip)
-        }
+        request.httpBody = route.body()
         
         // Create the URL session
         let session = URLSession.shared
@@ -148,7 +165,6 @@ class Networking {
         }.resume()
     }
 }
-
 
 
 

@@ -43,7 +43,7 @@ class LoginVC: UIViewController {
     @IBAction func signupBtn(_ sender: Any) {
         let user = User(email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
         
-        Networking.fetch(route: Route.users(), user: user, httpMethod: HTTPMethod.get) { (data, int) in
+        Networking.fetch(route: Route.createUser(user: user)) { (data, int) in
             if int == 200 {
                 let username = self.keychain.get("username")
                 let password = self.keychain.get("password")

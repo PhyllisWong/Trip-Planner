@@ -19,8 +19,6 @@ class addTripVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     // When the user presses this button, it saves the trip.
@@ -28,12 +26,11 @@ class addTripVC: UIViewController {
         let trip = Trip(destination: destinationTF.text!, waypoints: [waypointsTF.text!], completed: completedSwitch.isOn)
 
         //==> POST new trip
-        Networking.fetch(route: Route.trips(), trip: trip, httpMethod: .post) { (data, response) in
-            print("ADD TRIP response code: \(response)/n")
+        Networking.fetch(route: Route.createTrip(trip: trip)) { (data, response) in
+            print("\nADD TRIP response code: \(response)/n")
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }
-  
         }
     }
 
