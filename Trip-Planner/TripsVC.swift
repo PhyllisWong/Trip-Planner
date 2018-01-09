@@ -61,7 +61,8 @@ extension TripsVC: UITableViewDataSource {
         
         tripDetailVC.trip = trip
         tripDetailVC.user = user
-        self.navigationController?.pushViewController(tripDetailVC, animated: true)
+        self.performSegue(withIdentifier: "tripDetailSegue", sender: self)
+        //self.navigationController?.pushViewController(tripDetailVC, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
