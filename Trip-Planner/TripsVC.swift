@@ -1,6 +1,6 @@
 //  TripsVC.swift
 //  Trip-Planner
-//  Created by djchai on 12/7/17.
+//  Created by Phyllis Wong on 12/7/17.
 //  Copyright © 2017 Phyllis Wong. All rights reserved.
 
 import UIKit

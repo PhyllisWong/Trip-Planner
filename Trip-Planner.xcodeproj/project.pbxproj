@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77D212F8D795168EAEF9C946 /* Pods_Trip_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6A417FD3E2E85A853AF5A7 /* Pods_Trip_Planner.framework */; };
+		B98707DC2006CDA400376EE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98707DB2006CDA400376EE9 /* ViewController.swift */; };
 		B99125D91FD9CAC300BEB3DE /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99125D81FD9CAC300BEB3DE /* TripsVC.swift */; };
 		B99125DB1FD9D08900BEB3DE /* TripDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99125DA1FD9D08900BEB3DE /* TripDetailVC.swift */; };
 		B99125DF1FD9D2EC00BEB3DE /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99125DE1FD9D2EC00BEB3DE /* TripCell.swift */; };
@@ -20,11 +21,13 @@
 		B997D3D01FD8AC0600CB91C5 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */; };
 		B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */; };
 		B9A72E501FDE257A00681744 /* addTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A72E4F1FDE257A00681744 /* addTripVC.swift */; };
+		B9F385DC20081F0B004287EB /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F385DB20081F0B004287EB /* AlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06AC3D439B16C02B7590B60B /* Pods-Trip-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip-Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trip-Planner/Pods-Trip-Planner.release.xcconfig"; sourceTree = "<group>"; };
 		8B7A070E629522C9748A938A /* Pods-Trip-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trip-Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trip-Planner/Pods-Trip-Planner.debug.xcconfig"; sourceTree = "<group>"; };
+		B98707DB2006CDA400376EE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../../ViewController.swift; sourceTree = "<group>"; };
 		B99125D81FD9CAC300BEB3DE /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		B99125DA1FD9D08900BEB3DE /* TripDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailVC.swift; sourceTree = "<group>"; };
 		B99125DE1FD9D2EC00BEB3DE /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		B997D3CF1FD8AC0600CB91C5 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		B997D3D11FD8ACAD00CB91C5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B9A72E4F1FDE257A00681744 /* addTripVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTripVC.swift; sourceTree = "<group>"; };
+		B9F385DB20081F0B004287EB /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		FF6A417FD3E2E85A853AF5A7 /* Pods_Trip_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trip_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,11 +90,13 @@
 			children = (
 				B99242E81FD88B3B00F2307B /* AppDelegate.swift */,
 				B99242EA1FD88B3B00F2307B /* LoginVC.swift */,
+				B9F385DB20081F0B004287EB /* AlertViewController.swift */,
 				B99125D81FD9CAC300BEB3DE /* TripsVC.swift */,
 				B9A72E4F1FDE257A00681744 /* addTripVC.swift */,
 				B99125DA1FD9D08900BEB3DE /* TripDetailVC.swift */,
 				B99125DE1FD9D2EC00BEB3DE /* TripCell.swift */,
 				B99242EC1FD88B3B00F2307B /* Main.storyboard */,
+				B98707DB2006CDA400376EE9 /* ViewController.swift */,
 				B99242EF1FD88B3B00F2307B /* Assets.xcassets */,
 				B99242F11FD88B3B00F2307B /* LaunchScreen.storyboard */,
 				B99242F41FD88B3B00F2307B /* Info.plist */,
@@ -238,12 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98707DC2006CDA400376EE9 /* ViewController.swift in Sources */,
 				B99125DF1FD9D2EC00BEB3DE /* TripCell.swift in Sources */,
 				B997D3D01FD8AC0600CB91C5 /* TripModel.swift in Sources */,
 				B99125D91FD9CAC300BEB3DE /* TripsVC.swift in Sources */,
 				B997D3CE1FD88C5800CB91C5 /* Networking.swift in Sources */,
 				B99242EB1FD88B3B00F2307B /* LoginVC.swift in Sources */,
 				B99125DB1FD9D08900BEB3DE /* TripDetailVC.swift in Sources */,
+				B9F385DC20081F0B004287EB /* AlertViewController.swift in Sources */,
 				B997D3D21FD8ACAD00CB91C5 /* UserModel.swift in Sources */,
 				B9A72E501FDE257A00681744 /* addTripVC.swift in Sources */,
 				B99242E91FD88B3B00F2307B /* AppDelegate.swift in Sources */,

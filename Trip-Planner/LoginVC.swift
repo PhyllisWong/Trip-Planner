@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Trip-Planner
 //
-//  Created by djchai on 12/6/17.
+//  Created by Phyllis Wong on 12/6/17.
 //  Copyright © 2017 Phyllis Wong. All rights reserved.
 //
 
@@ -12,10 +12,11 @@ import KeychainSwift
 
 class LoginVC: UIViewController {
     
+    
+    // Variables
     let keychain = KeychainSwift()
     
     
-    // Variables
     // Perminently store user data
     var user = UserDefaults()
    
@@ -34,24 +35,25 @@ class LoginVC: UIViewController {
     }
 
     // Actions
-    @IBAction func loginBtn(_ sender: Any) {
-        let user = User(email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
-        print(user)
-        keychain.set(user.username, forKey: "username")
-        keychain.set(user.password, forKey: "password")
-    }
-    @IBAction func signupBtn(_ sender: Any) {
+
+    @IBAction func loginSignupBtnPressed(_ sender: Any) {
         let user = User(email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
         
         Networking.fetch(route: Route.createUser(user: user)) { (data, int) in
             if int == 200 {
-                let username = self.keychain.get("username")
-                let password = self.keychain.get("password")
-                print(username, password)
                 UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                 let tripsVC = storyboard.instantiateViewController(withIdentifier: "TripsVC") as! TripsVC
+                
                 tripsVC.user = user
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(tripsVC, animated: true)
+                }
+            }
+            else {
+                DispatchQueue.main.async {
+                    self.present(AlertViewController.showAlert(), animated: true)
+                }
             }
         }
     }
