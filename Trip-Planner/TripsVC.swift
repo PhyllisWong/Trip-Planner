@@ -55,14 +55,14 @@ extension TripsVC: UITableViewDataSource {
     // When user selects a row in the table view go to the detail view of the trip
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let trip = trips[indexPath.row]!
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let tripDetailVC = storyboard.instantiateViewController(withIdentifier: "TripDetailVC") as! TripDetailVC
         
         tripDetailVC.trip = trip
         tripDetailVC.user = user
-        self.performSegue(withIdentifier: "tripDetailSegue", sender: self)
-        //self.navigationController?.pushViewController(tripDetailVC, animated: true)
+        
+        self.navigationController?.pushViewController(tripDetailVC, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -113,26 +113,3 @@ extension TripsVC: UITableViewDataSource {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

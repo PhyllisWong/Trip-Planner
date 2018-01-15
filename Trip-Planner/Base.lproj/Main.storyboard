@@ -105,18 +105,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733.60000000000002" y="116.49175412293854"/>
+            <point key="canvasLocation" x="20" y="149"/>
         </scene>
         <!--TripsVC-->
         <scene sceneID="wWu-Vs-xbs">
             <objects>
                 <viewController restorationIdentifier="TripsVC" storyboardIdentifier="TripsVC" title="TripsVC" id="9oG-nY-B8C" customClass="TripsVC" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xpo-J1-046">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tripsTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4DY-N2-vvc" userLabel="tripsTableView">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="132" id="vB1-ts-7ZK" customClass="TripCell" customModule="Trip_Planner" customModuleProvider="target">
@@ -164,28 +164,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-sM-xA6">
-                                <rect key="frame" x="0.0" y="5" width="375" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="krA-xI-oe8"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Trips" id="wdf-0V-UXZ"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="60" id="1hB-Bc-mGs"/>
-                            <constraint firstItem="AlR-sM-xA6" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="6hJ-3h-aV0"/>
-                            <constraint firstItem="AlR-sM-xA6" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="HWD-NK-v5E"/>
-                            <constraint firstItem="AlR-sM-xA6" firstAttribute="top" secondItem="xpo-J1-046" secondAttribute="top" constant="5" id="Per-Uw-MfS"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="trailing" secondItem="Cbt-ue-glO" secondAttribute="trailing" id="Saq-sl-zxg"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="leading" secondItem="Cbt-ue-glO" secondAttribute="leading" id="cMX-iu-w1a"/>
                             <constraint firstItem="4DY-N2-vvc" firstAttribute="bottom" secondItem="Cbt-ue-glO" secondAttribute="bottom" id="qha-OL-MyP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cbt-ue-glO"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="jGR-gW-zNQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Eo3-3h-L8D">
                             <connections>
@@ -200,48 +189,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onc-sJ-p9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1541.5999999999999" y="113.79310344827587"/>
+            <point key="canvasLocation" x="1880.8" y="113.79310344827587"/>
         </scene>
         <!--TripDetailVC-->
         <scene sceneID="BYd-tg-pho">
             <objects>
-                <viewController restorationIdentifier="TripDetailVC" storyboardIdentifier="TripDetailVC" id="Zbd-Mb-8Hj" userLabel="TripDetailVC" customClass="TripDetailVC" customModule="Trip_Planner" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TripDetailVC" storyboardIdentifier="TripDetailVC" id="Zbd-Mb-8Hj" userLabel="TripDetailVC" customClass="TripDetailVC" customModule="Trip_Planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Scp-ZT-3Xj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTC-CA-Mtl">
-                                <rect key="frame" x="143" y="60" width="89" height="24"/>
+                                <rect key="frame" x="143" y="104" width="89" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15T-1w-gzQ">
-                                <rect key="frame" x="113" y="96" width="150" height="24"/>
+                                <rect key="frame" x="113" y="140" width="150" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waypoints" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbG-mX-7kg">
-                                <rect key="frame" x="147" y="186" width="82" height="24"/>
+                                <rect key="frame" x="147" y="230" width="82" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X56-5k-aHH">
-                                <rect key="frame" x="143" y="299" width="89" height="24"/>
+                                <rect key="frame" x="143" y="343" width="89" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="display waypoints" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9b-bY-DSs" userLabel="displayWaypointsLabel">
-                                <rect key="frame" x="12" y="222" width="351" height="24"/>
+                                <rect key="frame" x="12" y="266" width="351" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="False" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIu-Sp-xwh">
-                                <rect key="frame" x="168" y="335" width="40" height="24"/>
+                                <rect key="frame" x="168" y="379" width="40" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -274,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzy-Ti-r9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306.4000000000001" y="117.39130434782609"/>
+            <point key="canvasLocation" x="2645.5999999999999" y="117.39130434782609"/>
         </scene>
         <!--addTripVC-->
         <scene sceneID="McE-65-Vlj">
@@ -369,7 +358,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uRi-wW-c0l">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2bV-ua-aIG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNav" automaticallyAdjustsScrollViewInsets="NO" id="2bV-ua-aIG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9LL-Rx-d79">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -385,7 +374,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRE-Zg-3x4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="117"/>
+            <point key="canvasLocation" x="-737" y="149"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MhJ-r0-0lV">
+            <objects>
+                <navigationController storyboardIdentifier="TripsNav" automaticallyAdjustsScrollViewInsets="NO" id="MJU-ug-sIJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rYG-FZ-rJZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9oG-nY-B8C" kind="relationship" relationship="rootViewController" id="Htk-Cb-ZMd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0K-Ly-c32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="117"/>
         </scene>
     </scenes>
 </document>

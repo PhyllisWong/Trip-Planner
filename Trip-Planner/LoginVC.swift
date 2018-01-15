@@ -39,26 +39,36 @@ class LoginVC: UIViewController {
     @IBAction func loginSignupBtnPressed(_ sender: Any) {
         let user = User(email: emailTF.text!, username: usernameTF.text!, password: passwordTF.text!)
         
-        Networking.fetch(route: Route.createUser(user: user)) { (data, int) in
-            if int == 200 {
-                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
-                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                let tripsVC = storyboard.instantiateViewController(withIdentifier: "TripsVC") as! TripsVC
+        Networking.fetch(route: Route.loginUser(email: user.email, password: user.password)) { (data, res) in
+            if res == 200 {
+                UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
                 
-                tripsVC.user = user
-                DispatchQueue.main.async {
-                    self.navigationController?.pushViewController(tripsVC, animated: true)
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let tripsVC = storyboard.instantiateViewController(withIdentifier: "TripsNav") as! UINavigationController
+//            tripsVC.user = user
+                    DispatchQueue.main.async {
+                        // 1. Grab the app delegate delegate
+                        // 2. Set the rootViewController of the window property of the delegate
+                        // 3. Make key and visible
+                        
+                        let appDelegate = UIApplication.shared.delegate!
+                        appDelegate.window??.rootViewController = tripsVC
+                        appDelegate.window??.makeKeyAndVisible()
+                        
+                    }
+                }
+                
+                else {
+                    DispatchQueue.main.async {
+                        self.present(AlertViewController.showAlert(), animated: true)
+                    }
                 }
             }
-            else {
-                DispatchQueue.main.async {
-                    self.present(AlertViewController.showAlert(), animated: true)
-                }
-            }
+        
         }
     }
 
-}
+
 
 
 extension LoginVC: UITextFieldDelegate {
@@ -76,6 +86,23 @@ extension LoginVC: UITextFieldDelegate {
 }
 
 
+//        Networking.fetch(route: Route.createUser(user: user)) { (data, int) in
+//            if int == 200 {
+//                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+//                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//                let tripsVC = storyboard.instantiateViewController(withIdentifier: "TripsVC") as! TripsVC
+//
+//                tripsVC.user = user
+//                DispatchQueue.main.async {
+//                    self.navigationController?.pushViewController(tripsVC, animated: true)
+//                }
+//            }
+//            else {
+//                DispatchQueue.main.async {
+//                    self.present(AlertViewController.showAlert(), animated: true)
+//                }
+//            }
+//        }
 
 
 
